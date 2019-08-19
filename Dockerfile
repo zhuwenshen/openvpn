@@ -1,5 +1,11 @@
-FROM centos:7.2.1511
+FROM centos:7.4.1708
 MAINTAINER zhuwenshen <1204621904@qq.com>
+
+#设置编码
+ENV LANG en_US.UTF-8
+#设置时区
+#RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+#	&&  echo "Asia/Shanghai" > /etc/timezone; 
 
 #允许数据转发
 #RUN sed -i '$a net.ipv4.ip_forward = 1' /etc/sysctl.conf
@@ -26,8 +32,7 @@ CMD /usr/sbin/init
 #bulid
 #docker build -t openvpn:1.0 .
 #启动命令
-#docker run -d --name openvpn --privileged=true -p 8080:8080 -p 21194:1194 -v /dockerdata/chrome/app:/app selnium:chrome2.73
-#docker run -d --name openvpn --net=host --privileged=true  -p 21194:1194 openvpn:1.0 /usr/sbin/init
+#docker run -d --name openvpn --privileged=true -e TZ="Asia/Shanghai" -p 21194:21194 openvpn:1.0
 #进入容器
 #docker exec -it openvpn /bin/bash
 #执行初始化脚本
@@ -39,5 +44,5 @@ CMD /usr/sbin/init
 
 
 #push
-#docker tag 3b0405928776 registry.cn-hangzhou.aliyuncs.com/zhuwenshen/openvpn:1.0
+#docker tag ebd3aa19fb92 registry.cn-hangzhou.aliyuncs.com/zhuwenshen/openvpn:1.0
 #docker push registry.cn-hangzhou.aliyuncs.com/zhuwenshen/openvpn:1.0

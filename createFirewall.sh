@@ -13,8 +13,8 @@ firewall-cmd --add-service=openvpn --permanent
 firewall-cmd --add-port=21194/udp --permanent
 firewall-cmd --add-port=21194/tcp --permanent #保存映射端口与docker的出端口一致
 #firewall-cmd --add-port=22/tcp --permanent
-firewall-cmd --add-source=10.6.2.0 --permanent
-firewall-cmd --query-source=10.6.2.0 --permanent
+firewall-cmd --add-source=10.6.2.0 --permanent #具体要访问的内网
+firewall-cmd --query-source=10.6.2.0 --permanent #具体要访问的内网
 firewall-cmd --add-masquerade --permanent
 firewall-cmd --query-masquerade --permanent
 firewall-cmd --reload

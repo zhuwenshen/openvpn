@@ -33,5 +33,5 @@ cp /etc/openvpn/easy-rsa/3/pki/ca.crt .
 cp /etc/openvpn/easy-rsa/3/pki/issued/$1.crt .
 cp /etc/openvpn/easy-rsa/3/pki/private/$1.key .
 
-echo "生成客户端完成，文档路径为：/etc/openvpn/client$1"
+echo "生成客户端完成，文档路径为：/etc/openvpn/client/$1"
 exec "$@"
