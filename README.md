@@ -58,4 +58,38 @@ docker restart openvpn
 # 4.客户端配置
 生成的客户端配置的目录 /home/dockerdata/openvpn/client/zhuwenshen 
 
+### 1.修改配置
+参考 源码给出的例子配置zhuwenshen.ovpn
+
+创建 【用户名.ovpn】的配置文件
+
+修改 服务器端口和访问的域名或ip
+
+remote my.com 21194
+
+修改认证文件
+cert zhuwenshen.crt #对应的用户名.crt
+
+key zhuwenshen.key #对应的用户名.key
+
+
+### 2.下载客户端（windows 10）
+下载OpenVPN客户端  https://www.techspot.com/downloads/5182-openvpn.html
+安装客户端
+
+### 3.配置
+把服务器生成的三个配置文件
+ca.crt、zhuwenshen.crt、zhuwenshen.key
+加上 新建的文件 zhuwenshen.ovpn
+
+一共四个文件 一起放到客户度的安装目录的config的目录下
+
+### 4.启动客户端
+启动客户端，在win10的环境下，一定要用管理员运行，否则连接不上vpn。
+
+客户端启动后会自动连接vpn
+
+
+
+
 
