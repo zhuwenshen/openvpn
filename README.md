@@ -11,7 +11,7 @@ docker stop openvpn
 ### 1.确定访问端口 
 映射端口 21194
 ### 2. 运行容器
-docker run -d --name openvpn -e TZ="Asia/Shanghai"  --privileged=true -v /home/dockerdata/openvpn:/etc/openvpn -p 21194:21194 registry.cn-hangzhou.aliyuncs.com/zhuwenshen/openvpn:1.0
+docker run -d --name openvpn -e TZ="Asia/Shanghai"  --privileged=true -v /home/dockerdata/openvpn:/etc/openvpn -p 21194:21194 zhuwenshen/openvpn:1.0
 ### 3.修改防火墙脚本
 防火墙配置脚本在/home/dockerdata/openvpn/createFirewall.sh
 
