@@ -2,7 +2,7 @@
 ### 创建容器保存目录
 mkdir -p /home/dockerdata
 ### 运行测试容器
-docker run -d  --rm --name openvpn --privileged=true registry.cn-hangzhou.aliyuncs.com/zhuwenshen/openvpn:1.0
+docker run -d  --rm --name openvpn --privileged=true zhuwenshen/openvpn:1.0
 ### 取得相关脚本
 docker cp openvpn:/etc/openvpn /home/dockerdata/
 docker stop openvpn
