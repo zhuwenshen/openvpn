@@ -11,23 +11,17 @@ docker stop openvpn
 ### 1.确定访问端口 
 映射端口 21194
 ### 2. 运行容器
-docker run -d --name openvpn -e TZ="Asia/Shanghai"  --privileged=true \
--v /home/dockerdata/openvpn:/etc/openvpn \
--p 21194:21194 registry.cn-hangzhou.aliyuncs.com/zhuwenshen/openvpn:1.0
+docker run -d --name openvpn -e TZ="Asia/Shanghai"  --privileged=true -v /home/dockerdata/openvpn:/etc/openvpn -p 21194:21194 registry.cn-hangzhou.aliyuncs.com/zhuwenshen/openvpn:1.0
 ### 3.修改防火墙脚本
 防火墙配置脚本在/home/dockerdata/openvpn/createFirewall.sh
 
-修改映射端口与要映射的端口一致
-
-firewall-cmd --add-port=21194/udp --permanent
-
+修改映射端口与要映射的端口一致\
+firewall-cmd --add-port=21194/udp --permanent\
 firewall-cmd --add-port=21194/tcp --permanent
 
 
-修改需要访问的内网网段
-
-firewall-cmd --add-source=10.6.2.0 --permanent
-
+修改需要访问的内网网段\
+firewall-cmd --add-source=10.6.2.0 --permanent\
 firewall-cmd --query-source=10.6.2.0 --permanent 
 
 ### 4.修改openvpn的配置文件
@@ -67,9 +61,8 @@ docker restart openvpn
 
 remote my.com 21194
 
-修改认证文件
-cert zhuwenshen.crt #对应的用户名.crt
-
+修改认证文件\
+cert zhuwenshen.crt #对应的用户名.crt\
 key zhuwenshen.key #对应的用户名.key
 
 
@@ -80,8 +73,7 @@ key zhuwenshen.key #对应的用户名.key
 ### 3.配置
 把服务器生成的三个配置文件
 ca.crt、zhuwenshen.crt、zhuwenshen.key
-加上 新建的文件 zhuwenshen.ovpn
-
+加上 新建的文件 zhuwenshen.ovpn\
 一共四个文件 一起放到客户度的安装目录的config的目录下
 
 ### 4.启动客户端
